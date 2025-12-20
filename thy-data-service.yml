@@ -6,6 +6,9 @@ spring:
     url: jdbc:postgresql://localhost:5432/thy
     username: thy
     password: thy
+  liquibase:
+    enabled: true
+    change-log: classpath:/db/changelog/db.changelog-master.xml
 
   jpa:
     hibernate:
@@ -18,10 +21,6 @@ spring:
 
   messages:
     basename: exception
-
-  liquibase:
-    enabled: true
-    change-log: classpath:db.changelog/db.changelog-master.xml
 
   kafka:
     bootstrap-servers: localhost:9092
@@ -41,3 +40,5 @@ eureka:
       defaultZone: ${EUREKA_URI:http://localhost:8012/eureka}
   instance:
     instance-id: ${spring.application.name}:${spring.application.instance_id:${random.value}}
+
+
