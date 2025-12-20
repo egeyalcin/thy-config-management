@@ -34,3 +34,10 @@ springfox:
       v2:
         path: /api-docs
         use-default-response-messages: false
+
+eureka:
+  client:
+    service-url:
+      defaultZone: ${EUREKA_URI:http://localhost:8012/eureka}
+  instance:
+    instance-id: ${spring.application.name}:${spring.application.instance_id:${random.value}}
