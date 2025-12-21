@@ -4,14 +4,13 @@ spring:
   cloud:
     gateway:
       routes:
-        - id: thy-flight-management-service
-          uri: lb://thy-flight-management-service
+        - id: THY-FLIGHT-MANAGEMENT-SERVICE
+          uri: lb://THY-FLIGHT-MANAGEMENT-SERVICE
           predicates:
             - Path=/api/v1/route/**
       discovery:
         locator:
           enabled: true
-          lower-case-service-id: true
 
 server:
   port: 8016
