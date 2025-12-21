@@ -3,18 +3,11 @@ spring:
     name: gateway-service
   cloud:
     gateway:
-      routes:
-        - id: order-service
-          uri: lb://order-service
-          predicates:
-            - Path=/api/v1/order/**
-        - id: product-service
-          uri: lb://product-service
-          predicates:
-            - Path=/api/v1/product/**
       discovery:
         locator:
           enabled: true
+          lower-case-service-id: true
+
 server:
   port: 8016
 
