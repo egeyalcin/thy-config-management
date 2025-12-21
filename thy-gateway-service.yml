@@ -8,6 +8,7 @@ spring:
           uri: lb://THY-FLIGHT-MANAGEMENT-SERVICE
           predicates:
             - Path=/api/v1/route/**
+            - Path=/api/v1/location/**
       discovery:
         locator:
           enabled: true
