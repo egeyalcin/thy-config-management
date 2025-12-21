@@ -1,0 +1,30 @@
+server:
+  port: 8017
+
+spring:
+  elasticsearch:
+    uris: http://thy-elasticsearch:9200
+    connection-timeout: 5s
+    socket-timeout: 30s
+
+  messages:
+    basename: exception
+
+  kafka:
+    bootstrap-servers: kafka:9092
+    consumer:
+      group-id: thy-data
+
+springfox:
+  documentation:
+    swagger:
+      v2:
+        path: /api-docs
+        use-default-response-messages: false
+
+eureka:
+  client:
+    service-url:
+      defaultZone: ${EUREKA_URI:http://eureka-server:8012/eureka}
+  instance:
+    instance-id: ${spring.application.name}:${spring.application.instance_id:${random.value}}
