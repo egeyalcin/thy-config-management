@@ -2,19 +2,10 @@ server:
   port: 8014
 
 spring:
-  datasource:
-    url: jdbc:postgresql://thy-db:5432/thy
-    username: thy
-    password: thy
-
-  jpa:
-    hibernate:
-      ddl-auto: none
-    show-sql: true
-    properties:
-      hibernate:
-        format_sql: true
-        dialect: org.hibernate.spatial.dialect.postgis.PostgisDialect
+  elasticsearch:
+    uris: http://thy-elasticsearch:9200
+    connection-timeout: 5s
+    socket-timeout: 30s
 
   messages:
     basename: exception
