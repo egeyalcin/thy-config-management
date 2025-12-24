@@ -3,18 +3,33 @@ spring:
     name: gateway-service
   cloud:
     gateway:
+      globalcors:
+        add-to-simple-url-handler-mapping: true
+        cors-configurations:
+          '[/**]':
+            allowedOrigins: "*"
+            allowedMethods:
+              - GET
+              - POST
+              - PUT
+              - DELETE
+              - OPTIONS
+            allowedHeaders: "*"
+            maxAge: 3600
+
       routes:
-        # DATA SERVICE - Sizin paylaştığınız Controller buraya yönlenir
-        - id: THY-DATA-SERVICE
+        - id: THY-DATA-SERVICE-COMMAND
           uri: lb://THY-DATA-SERVICE
           predicates:
             - Path=/api/v1/location/**, /api/v1/data/**
+            - Method=POST, PUT, DELETE
 
-        # FLIGHT MANAGEMENT SERVICE
         - id: THY-FLIGHT-MANAGEMENT-SERVICE
           uri: lb://THY-FLIGHT-MANAGEMENT-SERVICE
           predicates:
-            - Path=/api/v1/flight/location/**, /api/v1/transportation/**, /api/v1/route
+            - Path=/api/v1/location/**, /api/v1/flight/location/**, /api/v1/transportation/**, /api/v1/route
+            - Method=GET
+
       discovery:
         locator:
           enabled: true
