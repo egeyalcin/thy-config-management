@@ -4,10 +4,17 @@ spring:
   cloud:
     gateway:
       routes:
+        # DATA SERVICE - Sizin paylaştığınız Controller buraya yönlenir
+        - id: THY-DATA-SERVICE
+          uri: lb://THY-DATA-SERVICE
+          predicates:
+            - Path=/api/v1/location/**, /api/v1/data/**
+
+        # FLIGHT MANAGEMENT SERVICE
         - id: THY-FLIGHT-MANAGEMENT-SERVICE
           uri: lb://THY-FLIGHT-MANAGEMENT-SERVICE
           predicates:
-            - Path=/api/v1/**
+            - Path=/api/v1/location/**, /api/v1/transportation/**
       discovery:
         locator:
           enabled: true
