@@ -27,8 +27,8 @@ spring:
         - id: THY-FLIGHT-MANAGEMENT-SERVICE
           uri: lb://THY-FLIGHT-MANAGEMENT-SERVICE
           predicates:
-            - Path=/api/v1/location/**, /api/v1/flight/location/**, /api/v1/transportation/**, /api/v1/route
-            - Method=GET
+            - Path=/api/v1/location/**, /api/v1/flight/location/**, /api/v1/transportation/**, /api/v1/route/**
+            - Method=GET, POST
 
       discovery:
         locator:
