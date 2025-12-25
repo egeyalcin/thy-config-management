@@ -11,7 +11,7 @@ spring:
     type: redis
   data:
     redis:
-      host: thy-redis
+      host: localhost
       port: 6379
 
   messages:
