@@ -9,10 +9,15 @@ spring:
 
   cache:
     type: redis
-  data:
     redis:
-      host: localhost
+      host: thy-redis
       port: 6379
+
+cache:
+  config:
+    entryTtl: 60
+    countryNames:
+      entryTtl: 30
 
   messages:
     basename: exception
