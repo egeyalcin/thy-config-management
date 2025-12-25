@@ -25,7 +25,7 @@ spring:
             - Method=POST, PUT, DELETE
 
         - id: THY-FLIGHT-MANAGEMENT-SERVICE
-          uri: lb://THY-FLIGHT-MANAGEMENT-SERVICE
+          uri: lb://THY-ROUTE-MANAGEMENT-SERVICE
           predicates:
             - Path=/api/v1/route/**
             - Method=GET
