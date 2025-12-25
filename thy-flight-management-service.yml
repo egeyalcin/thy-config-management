@@ -7,6 +7,13 @@ spring:
     connection-timeout: 5s
     socket-timeout: 30s
 
+  cache:
+    type: redis
+  data:
+    redis:
+      host: thy-redis
+      port: 6379
+
   messages:
     basename: exception
 
